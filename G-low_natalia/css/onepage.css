@@ -1,0 +1,184 @@
+table {
+    width:98%;
+	margin: 1%;
+	background-color: beige;
+}
+table, th, td {
+    border: 2px solid black;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 5px;
+    text-align: left;
+}
+.h0,.v0{
+	background-color: #e77937;
+}
+
+#page1{
+    background-color: #3C67BD;
+
+}
+#page2{
+    background-color: #66FFAA;
+}
+#page3{
+    background-color: #FFAA77;
+}
+
+/*------*/
+/* menu */
+/*------*/
+#nav-bar {
+
+    width: 100%;
+    float: left;
+    padding:0;
+}
+
+.capcalera{
+
+  background-color: #011D3D;
+
+}
+
+.logo2{
+
+  height: 50px;
+  width: 50px;
+
+
+}
+.logo{
+
+  height: 100px;
+  width: 100%;
+  padding-top:40px;
+  margin-bottom:0px;
+
+}
+
+.nomCaratu{
+
+
+}
+
+.caratula {
+
+  /*width: 50px;
+  height: 20px;*/
+
+}
+
+Clearfix to stop our floats escaping
+#nav-bar:before, #nav-bar:after {
+    content: "\0020";
+    display: block;
+    height: 0;
+    overflow: hidden;
+}
+#nav-bar:after {
+    clear: both;
+}
+
+/* Float our three list items so they’re evenly spaced */
+#nav-bar li {
+    display: inline;
+    float: left;
+    width: 33.333%;
+
+}
+/* Set a elements as blocks */
+#nav-bar a {
+    background: #011D3D;
+    margin: 0 1px; /* Separacio botons */
+    color: #cdcdcd;
+    display: block;
+    font-size: 0.875em; /* 14px */
+    font-weight: bold;
+    font-family: sans-serif;
+    height: 3em; /* 48 px */
+    overflow: hidden;
+    padding-top: 0.428em; /* 6px */
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+}
+
+/* See only current page */
+#pages > div {
+display: none;
+}
+#pages > div.current {
+display: block;
+}
+/* Make transition possible */
+#pages {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    float: left;
+}
+#pages > div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height:100%;
+}
+/*----------------------------*/
+/* Transition page animations */
+/*----------------------------*/
+.in, .out {
+-webkit-animation-timing-function: ease-in-out;
+-webkit-animation-duration: 1000ms;
+}
+/* fade animation */
+@-webkit-keyframes fade-in {
+from { opacity: 0; }
+to { opacity: 1; }
+}
+.fade.in {
+-webkit-animation-name: fade-in;
+z-index: 10;
+}
+.fade.out {
+z-index: 0;
+}
+/* Slide animation */
+/* Screen pushes out to left */
+@-webkit-keyframes outToLeft {
+from { -webkit-transform: translateX(0); }
+to { -webkit-transform: translateX(-100%); }
+}
+.push.out {
+-webkit-animation-name: outToLeft;
+}
+/* Screen pushes in from the right */
+@-webkit-keyframes inFromRight {
+from { -webkit-transform: translateX(100%); }
+to { -webkit-transform: translateX(0); }
+}
+.push.in {
+-webkit-animation-name: inFromRight;
+
+}
+
+/*--------------------------*/
+/*        REVERSE           */
+/*--------------------------*/
+
+@-webkit-keyframes inFromLeft {
+from { -webkit-transform: translateX(-100%); }
+to { -webkit-transform: translateX(0); }
+}
+.push.in.reverse {
+-webkit-animation-name: inFromLeft;
+}
+@-webkit-keyframes outToRight {
+from { -webkit-transform: translateX(0); }
+to { -webkit-transform: translateX(100%); }
+}
+.push.out.reverse {
+-webkit-animation-name: outToRight;
+}
